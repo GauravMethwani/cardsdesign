@@ -13,6 +13,7 @@ export default function NavigationBaar() {
             <li><NavLink exact to="/" activeClassName="active">Home</NavLink></li>
             <li><NavLink to="/pages" activeClassName="active">Leaderboard</NavLink></li>
             <li><NavLink to="/dailyout" activeClassName="active">DaliyOut</NavLink></li>
+            <li><NavLink to="/Cards2" activeClassName="active">Page2</NavLink></li>
           </ul>
         </div>
         <div><NavLink to="/signout" activeClassName="active">Signout</NavLink></div>

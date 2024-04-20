@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import './Cards.css';
 import Button from './Button';
-import { Link, } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+
 export default function Pages() {
   const [content, setContent] = useState([]);
   const [error, setError] = useState(null);
@@ -32,8 +33,16 @@ export default function Pages() {
   const endIndex = startIndex + itemsPerPage;
   const displayedContent = content.slice(startIndex, endIndex);
 
- 
- 
+  const totalPages = Math.ceil(content.length / itemsPerPage);
+
+  const goToPreviousPage = () => {
+    setCurrentPage((prevPage) => Math.max(prevPage - 1, 0));
+  };
+
+  const goToNextPage = () => {
+    setCurrentPage((prevPage) => Math.min(prevPage + 1, totalPages - 1));
+  };
+
   return (
     <div>
       <Button />
@@ -50,10 +59,8 @@ export default function Pages() {
           <div>No data available</div>
         )}
       </div>
-      <div className="nextprev">
-       <Link NavLink to="">Privious</Link>
-       <Link NavLink to="">Next</Link>
-      </div>
+     
+     
     </div>
   );
 }
